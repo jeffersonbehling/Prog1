@@ -1,12 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ExerciciosExtras;
-
-import static ExerciciosExtras.cpfSemMetodos.cpf;
-import static ExerciciosExtras.validacaoCPF.cpf;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,10 +24,10 @@ public class cpfMetodo {
         boolean correto2 = verificaCpf(resto2, dig2);
         
         if(correto1 && correto2){
-            System.out.println("CPF V√ÅLIDO!!!");
+            System.out.println("CPF V¡LIDO!!!");
         }
         else{
-            System.out.println("CPF INV√ÅLIDO!!!");
+            System.out.println("CPF INV¡LIDO!!!");
         }
     }    
     public static int calcularSomaCpf(int valor) {
@@ -51,10 +42,29 @@ public class cpfMetodo {
     }
     
     public static boolean verificaCpf(int resto, int digito){
-        if((resto < 2) && (digito == 0)){
-            return true;
-        }else if ((resto >= 2) && ((11-resto) == digito)){
-            return true;
+        if(cpfInalidosConhecidos()){
+            return false;
+        }else{
+            if((resto < 2) && (digito == 0) || (resto >= 2) && ((11-resto) == digito)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static boolean cpfInalidosConhecidos() {
+        String[] cpfInvalido = {"00000000000", "11111111111", 
+                                "22222222222", "33333333333",
+                                "44444444444", "55555555555",
+                                "66666666666", "77777777777",
+                                "88888888888", "99999999999"};
+        
+        int qtdCpfInv = (cpfInvalido.length - 1);
+        while (qtdCpfInv >= 0){
+            if(cpf.equals(cpfInvalido[qtdCpfInv])){
+                return true;
+            }
+            qtdCpfInv--;
         }
         return false;
     }
