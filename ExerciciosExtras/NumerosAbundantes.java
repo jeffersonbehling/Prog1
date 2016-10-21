@@ -1,5 +1,3 @@
-package ExerciciosExtras;
-
 import java.util.Scanner;
 
 /**
