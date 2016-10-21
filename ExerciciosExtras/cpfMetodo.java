@@ -14,9 +14,9 @@ public class cpfMetodo {
         System.out.print("Informe seu CPF: ");
         cpf = entrada.readLine();
         
-        int dig1 = Integer.valueOf(cpf.charAt(9)-48);
-        int dig2 = Integer.valueOf(cpf.charAt(10)-48);
-        
+        int dig1 = Integer.valueOf(""+cpf.charAt(9));
+        int dig2 = Integer.valueOf(""+cpf.charAt(10));
+                
         int resto1 = calcularSomaCpf(10);
         int resto2 = calcularSomaCpf(11);
         
@@ -34,7 +34,7 @@ public class cpfMetodo {
         int contador = 0;
         int soma = 0;
         for (int i = valor; i >= 2; i--) {
-            soma += (cpf.charAt(contador)-48)*i;
+            soma += (Integer.valueOf(""+cpf.charAt(contador)))*i;
             contador++;
         }
         int resto = (soma%11);
