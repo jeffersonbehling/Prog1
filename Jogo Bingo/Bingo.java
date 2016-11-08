@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class Bingo {
     static int[][] jogador1 = new int[5][5];
     static int[][] jogador2 = new int[5][5];
-    static int[] jaSorteados = new int[99];
     
     public static void main(String[] args) throws IOException {
         BufferedReader entrada = new BufferedReader (new InputStreamReader (System.in));
@@ -48,13 +47,13 @@ public class Bingo {
                 }
             }
         }
+        // ORDENA A RESPECTIVA CARTELA
+        ordenarCartelas(cartela);
         // FAZ A VERIFICAÇÃO DA IGUALDADE DAS CARTELAS
         if(verfCartelasIguais()){
             gerarCartelas(jogador1);
             gerarCartelas(jogador2);
         }
-        // ORDENA A RESPECTIVA CARTELA
-        ordenarCartelas(cartela);
     }
         
     public static void mostrarCartelas(){
