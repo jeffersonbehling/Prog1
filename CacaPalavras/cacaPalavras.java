@@ -158,15 +158,6 @@ public class cacaPalavras {
             System.out.println("");
         }
     }
-
-
-    calculaDelta:
-		li $t5, -4
-		mul $t3,$t1,$t1 # b * b
-		mul $t4,$t0,$t2 # a * c
-		multu $t4, $t5
-		add $t3, $t3,$t4
-		syscall
     
     public static void salvarResolucaoTxt() throws IOException{
         File arquivo = new File("ResolucaoCacaPalavra.txt");
